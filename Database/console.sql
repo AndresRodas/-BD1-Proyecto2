@@ -375,7 +375,6 @@ inner join pais_respuesta pr on pa.id = pr.id_pais
 inner join respuesta r on pr.id_respuesta = r.id
 right join (select id_region, nombre pais, null from pais) tmp on tmp.pais = pa.nombre
 group by id, pais) tmp on tmp.id = re.id
-#inner join region re2 on re2.id = re.id_region
 order by pais;
 
 #consulta 3
@@ -438,7 +437,8 @@ where (inv.nombre like 'B%r' or inv.nombre like 'B%n')
 and (i2.anio > 1800) and (i2.anio < 1900);
 
 #consulta 11
-select tmp.nombre pais, tmp.area, tmp.fronteras from (select pa.nombre, pa.area, count(fr.id_pais1) fronteras from pais pa
+select tmp.nombre pais, tmp.area, tmp.fronteras
+from (select pa.nombre, pa.area, count(fr.id_pais1) fronteras from pais pa
 inner join frontera fr on pa.id = fr.id_pais1
 group by nombre, area order by fronteras) tmp
 where tmp.fronteras > 7 order by area desc;
@@ -453,7 +453,8 @@ select pro.nombre, pro.salario, pro.comision,
 where pro.comision > (pro.salario*0.25);
 
 #consulta 14
-select tmp.encuesta, count(tmp.pais) paises from (select distinct enc.nombre encuesta, pa.nombre pais from encuesta enc
+select tmp.encuesta, count(tmp.pais) paises
+from (select distinct enc.nombre encuesta, pa.nombre pais from encuesta enc
 inner join pregunta pre on enc.id = pre.id_encuesta
 inner join respuesta res on pre.id = res.id_pregunta
 inner join pais_respuesta pr on res.id = pr.id_respuesta
@@ -485,8 +486,7 @@ where invo.nombre = 'Pasteur');
 
 #consulta 17
 select inv.nombre invento, inv.anio from invento inv
-where inv.anio =
-(select i.anio from inventor invr
+where inv.anio = (select i.anio from inventor invr
 inner join inventado inva on invr.id = inva.id_inventor
 inner join invento i on inva.id_invento = i.id
 where invr.nombre = 'Benz');
@@ -505,4 +505,6 @@ inner join pais pa2 on pa2.id = fro.id_pais2;
 #consulta 20
 select nombre, salario, comision from profesional
 where salario > (2*comision) order by nombre;
+
+
 select * from pais;
