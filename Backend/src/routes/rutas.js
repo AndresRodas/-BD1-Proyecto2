@@ -3,32 +3,10 @@ const router = Router();
 const BD = require('../config/configbd');
 var nodemailer = require('nodemailer')
 
-//test coneccion mysql
 //GET MYSQL
-router.get('/pro', async (req, res) => {
-    BD.query('select * from profesional',(err,rows,fields) => {
-        if(!err){
-            res.json(rows);
-        } else{
-            console.log('Error al hacer consulta: '+err)
-        }
-    });
-});
-router.get('/getUsers', async (req, res) => {
-    BD.query('select * from usuario',(err,rows,fields) => {
-        if(!err){
-            res.json(rows);
-        } else{
-            console.log('Error al hacer consulta: '+err)
-        }
-    });
-});
-router.get('/getPosts', async (req, res) => {
+router.get('/get', async (req, res) => {
     BD.query(`
-    select pu.id, us.username user, ju.nombre game, pu.fecha date, pu.comentario comment from publicacion pu
-    inner join usuario us on pu.id_usuario = us.id
-    inner join juego ju on pu.id_juego = ju.id
-    order by pu.fecha desc;
+    select * from pais
     `,(err,rows,fields) => {
         if(!err){
             res.json(rows);
@@ -37,24 +15,9 @@ router.get('/getPosts', async (req, res) => {
         }
     });
 });
-router.get('/getComments', async (req, res) => {
-    BD.query(`
-    select us.username user, co.comentario comment, co.id_publicacion post  from comentario co
-    inner join usuario us on co.id_usuario = us.id;
-    `,(err,rows,fields) => {
-        if(!err){
-            res.json(rows);
-        } else{
-            console.log('Error al hacer consulta: '+err)
-        }
-    });
-});
-
-
-
-router.get('/:id', async (req, res) => {
+router.get('/get:id', async (req, res) => {
     const { id } = req.params;
-    BD.query('select * from persona where id = ?', [id],(err,rows,fields) => {
+    BD.query('select * from pais where id = ?', [id],(err,rows,fields) => {
         if(!err){
             res.json(rows[0]);
         } else{
@@ -64,51 +27,33 @@ router.get('/:id', async (req, res) => {
 });
 
 //POST MYSQL
-router.post('/add', async (req, res) => {
-    const { nombre, apellido, genero} = req.body;
+router.post('/addpais', async (req, res) => {
+    const { nombre, poblacion, area, capital, id_region } = req.body;
     const query = `
-    insert into persona(nombre,apellido,genero)
-    values(?,?,?);
+    insert into pais(nombre,poblacion,area,capital,id_region)
+    values(?,?,?,?,?);
     `;
-    BD.query(query,[nombre, apellido, genero],(err,rows,fields) => {
+    BD.query(query,[nombre, poblacion, area, capital, id_region],(err,rows,fields) => {
         if(!err){
-            res.json({Status: 'Persona '+nombre+' agregada!'});
+            res.json({Status: 'Pais '+nombre+' agregado!'});
         } else{
             console.log('Error al hacer consulta: '+err)
         }  
     });
 
 })
-router.post('/setUsers', async (req, res) => {
-    const { name, last_name, user, email, pass, bio, fecha  } = req.body;
-    console.log(name,last_name,user,email,pass,bio,fecha)
-    const query = `
-    insert into usuario (nombre,apellido,username,correo,password,biografia,fecha)
-    values(?,?,?,?,?,?,?);
-    `;
-    BD.query(query,[name, last_name, user, email, pass, bio, fecha],(err,rows,fields) => {
-        if(!err){
-            res.json({Status: 'Persona '+name+' agregada!'});
-        } else{
-            console.log('Error al hacer consulta: '+err)
-        }  
-    });
-
-})
-
-
 
 //UPDATE MYSQL
-router.put("/:id", async (req, res) => {
-    const { nombre, apellido, genero } = req.body;
+router.put("/put:id", async (req, res) => {
+    const { nombre, poblacion, area, capital, id_region } = req.body;
     const { id } = req.params;
     const query = `
-        UPDATE persona
-        SET nombre = ?, apellido = ?, genero = ? WHERE id = ?
+        UPDATE pais
+        SET nombre = ?, poblacion = ?, area = ?, capital = ?, id_region = ? WHERE id = ?
     `; 
-    BD.query(query, [nombre, apellido, genero, id], (err, rows, fields) => {
+    BD.query(query, [nombre, poblacion, area, capital, id_region, id], (err, rows, fields) => {
         if(!err){
-            res.json({Status: 'Persona '+nombre+' editada!'});
+            res.json({Status: 'Pais '+nombre+' editado!'});
         } else{
             console.log('Error al hacer consulta: '+err)
         } 
@@ -116,12 +61,12 @@ router.put("/:id", async (req, res) => {
 })
 
 //DELETE MYSQL
-router.delete("/:id", async (req, res) => {
+router.delete("/delete:id", async (req, res) => {
     const { id } = req.params;
-    const query = 'delete from persona where id = ?';
+    const query = 'delete from pais where id = ?';
     BD.query(query, [id], (err, rows, fields) => {
         if(!err){
-            res.json({ "msg": "Persona eliminada" })
+            res.json({ "msg": "Pais eliminado" })
         } else{
             console.log('Error al hacer consulta: '+err)
         } 
@@ -160,9 +105,5 @@ router.post('/enviarcorreo', function(req, res){
         }
     })
 })
-
- 
-
-
 
 module.exports = router;

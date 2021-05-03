@@ -505,3 +505,4 @@ inner join pais pa2 on pa2.id = fro.id_pais2;
 #consulta 20
 select nombre, salario, comision from profesional
 where salario > (2*comision) order by nombre;
+select * from pais;
