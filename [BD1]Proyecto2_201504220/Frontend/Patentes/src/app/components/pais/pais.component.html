@@ -1,0 +1,148 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #e3f2fd;">
+  <a [routerLink]="['/home']" class="navbar-brand">QUERIES</a>
+  <button [routerLink]="['/home']" class="navbar-toggler" type="button" data-toggle="collapse"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a [routerLink]="['/pais']" class="nav-link" href="#">CRUD_PAIS<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a [routerLink]="['/pregunta']" class="nav-link" href="#">CRUD_PREGUNTA<span
+            class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a [routerLink]="['/inventos']" class="nav-link" href="#">INVENTOS<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a [routerLink]="['/respuestas']" class="nav-link" href="#">RESPUESTAS<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a [routerLink]="['/']" class="nav-link" href="#">Salir<span class="sr-only">(current)</span></a>
+      </li>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <h2>PATENTS</h2>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+    </form>
+  </div>
+</nav>
+
+
+<div class="container mt-5">
+  <div class="row mt-5 justify-content-center">
+    <div class="col-9">
+      <h2>CREATE</h2>
+      <form>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Pais</label>
+          <input [(ngModel)]="new_pais" name="new_pais" type="email" class="form-control" aria-describedby="emailHelp"
+            placeholder="Guatemala"><br>
+          <label for="exampleInputEmail1">Poblacion</label>
+          <input [(ngModel)]="new_poblacion" name="new_poblacion" type="email" class="form-control"
+            aria-describedby="emailHelp" placeholder="7714000"><br>
+          <label for="exampleInputEmail1">Area</label>
+          <input [(ngModel)]="new_area" name="new_area" type="email" class="form-control" aria-describedby="emailHelp"
+            placeholder="42042"><br>
+          <label for="exampleInputEmail1">Capital</label>
+          <input [(ngModel)]="new_capital" name="new_capital" type="email" class="form-control"
+            aria-describedby="emailHelp" placeholder="Guatemala city"><br>
+          <label for="exampleInputEmail1">Id_region</label>
+          <input [(ngModel)]="new_region" name="new_region" type="email" class="form-control"
+            aria-describedby="emailHelp" placeholder="4"><br>
+        </div>
+      </form>
+      <button (click)="Create()" type="submit" class="btn btn-primary btn-block">Crear</button>
+    </div>
+  </div>
+</div>
+
+
+<div class="container mt-5">
+  <div class="row mt-5 justify-content-center">
+    <div class="col-9">
+      <h2>READ</h2>
+      <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table table-dark table-striped mb-0">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">PAIS</th>
+              <th scope="col">POBLACION</th>
+              <th scope="col">AREA</th>
+              <th scope="col">CAPITAL</th>
+              <th scope="col">ID_REGION</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let pa of Paises">
+              <th scope="row">{{pa.id}}</th>
+              <th scope="row">{{pa.nombre}}</th>
+              <th scope="row">{{pa.poblacion}}</th>
+              <th scope="row">{{pa.area}}</th>
+              <th scope="row">{{pa.capital}}</th>
+              <th scope="row">{{pa.id_region}}</th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <br>
+      <button (click)="Read()" type="submit" class="btn btn-primary btn-block">Refrescar</button>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <div class="row mt-5 justify-content-center">
+    <div class="col-9">
+      <h2>UPDATE</h2>
+      <form>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Id</label>
+          <input [(ngModel)]="up_id" name="up_id" type="email" class="form-control" aria-describedby="emailHelp"
+            placeholder="64"><br>
+          <label for="exampleInputEmail1">Pais</label>
+          <input [(ngModel)]="up_pais" name="up_pais" type="email" class="form-control" aria-describedby="emailHelp"
+            placeholder="Guatemala"><br>
+          <label for="exampleInputEmail1">Poblacion</label>
+          <input [(ngModel)]="up_poblacion" name="up_poblacion" type="email" class="form-control"
+            aria-describedby="emailHelp" placeholder="7714000"><br>
+          <label for="exampleInputEmail1">Area</label>
+          <input [(ngModel)]="up_area" name="up_area" type="email" class="form-control" aria-describedby="emailHelp"
+            placeholder="42042"><br>
+          <label for="exampleInputEmail1">Capital</label>
+          <input [(ngModel)]="up_capital" name="up_capital" type="email" class="form-control"
+            aria-describedby="emailHelp" placeholder="Guatemala city"><br>
+          <label for="exampleInputEmail1">Id_region</label>
+          <input [(ngModel)]="up_region" name="up_region" type="email" class="form-control"
+            aria-describedby="emailHelp" placeholder="4"><br>
+        </div>
+      </form>
+      <button (click)="Update()" type="submit" class="btn btn-primary btn-block">Actualizar</button>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <div class="row mt-5 justify-content-center">
+    <div class="col-9">
+      <h2>DELETE</h2>
+      <form>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Id pais a eliminar:</label>
+          <input [(ngModel)]="del_id" name="del_id" type="email" class="form-control" aria-describedby="emailHelp"
+            placeholder="257"><br>
+        </div>
+      </form>
+      <button (click)="Delete()" type="submit" class="btn btn-primary btn-block">Eliminar</button>
+    </div>
+  </div>
+</div>
+<br><br><br>

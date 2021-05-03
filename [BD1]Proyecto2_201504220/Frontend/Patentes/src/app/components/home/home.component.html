@@ -1,0 +1,442 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #e3f2fd;">
+    <a [routerLink]="['/home']" class="navbar-brand" >QUERIES</a>
+    <button [routerLink]="['/home']" class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a [routerLink]="['/pais']" class="nav-link" href="#">CRUD_PAIS<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a [routerLink]="['/pregunta']" class="nav-link" href="#">CRUD_PREGUNTA<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a [routerLink]="['/inventos']" class="nav-link" href="#">INVENTOS<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a [routerLink]="['/respuestas']" class="nav-link" href="#">RESPUESTAS<span class="sr-only">(current)</span></a>
+        </li>
+
+        <li class="nav-item active">
+          <a [routerLink]="['/']" class="nav-link" href="#">Salir<span class="sr-only">(current)</span></a>
+        </li>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <h2>PATENTS</h2>
+      </ul>
+      <form class="form-inline my-2 my-lg-0"> 
+      </form>
+    </div>
+  </nav>
+  
+  <div class="container mt-5">
+    <h1>Consulta #1</h1>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table table-dark table-striped mb-0">
+            <thead>
+              <tr>
+                <th scope="col">PROFESIONAL</th>
+                <th scope="col">INVENTOS</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let con of Consulta1">
+                <th scope="row">{{con.profesional}}</th>
+                <th scope="row">{{con.inventos}}</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+  <div class="container mt-5">
+    <h1>Consulta #2</h1>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table table-dark table-striped mb-0">
+            <thead>
+              <tr>
+                <th scope="col">CONTINENTE</th>
+                <th scope="col">PAIS</th>
+                <th scope="col">RESPUESTAS</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let con of Consulta2">
+                <th scope="row">{{con.continente}}</th>
+                <th scope="row">{{con.pais}}</th>
+                <th scope="row">{{con.respuestas}}</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+
+
+  <div class="container mt-5">
+    <h1>Consulta #3</h1>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table table-dark table-striped mb-0">
+            <thead>
+              <tr>
+                <th scope="col">AREA</th>
+                <th scope="col">PAIS</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let con of Consulta3">
+                <th scope="row">{{con.area}}</th>
+                <th scope="row">{{con.pais}}</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <h1>Consulta #4</h1>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table table-dark table-striped mb-0">
+            <thead>
+              <tr>
+                <th scope="col">JEFE</th>
+                <th scope="col">PROFESIONAL</th>
+                <th scope="col">AREA</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let con of Consulta4">
+                <th scope="row">{{con.jefe}}</th>
+                <th scope="row">{{con.profesional}}</th>
+                <th scope="row">{{con.area}}</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <h1>Consulta #5</h1>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table table-dark table-striped mb-0">
+            <thead>
+              <tr>
+                <th scope="col">AREA</th>
+                <th scope="col">PROFESIONAL</th>
+                <th scope="col">SALARIO</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let con of Consulta5">
+                <th scope="row">{{con.area}}</th>
+                <th scope="row">{{con.profesional}}</th>
+                <th scope="row">{{con.salario}}</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <h1>Consulta #6</h1>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table table-dark table-striped mb-0">
+            <thead>
+              <tr>
+                <th scope="col">NOMBRE</th>
+                <th scope="col">ACIERTOS</th> 
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let con of Consulta6">
+                <th scope="row">{{con.nombre}}</th>
+                <th scope="row">{{con.aciertos}}</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <h1>Consulta #7</h1>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table table-dark table-striped mb-0">
+            <thead>
+              <tr>
+                <th scope="col">INVENTO</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let con of Consulta7">
+                <th scope="row">{{con.invento}}</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <h1>Consulta #8</h1>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table table-dark table-striped mb-0">
+            <thead>
+              <tr>
+                <th scope="col">INICIAL</th>
+                <th scope="col">AREA</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let con of Consulta8">
+                <th scope="row">{{con.inicial}}</th>
+                <th scope="row">{{con.area}}</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <h1>Consulta #9</h1>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table table-dark table-striped mb-0">
+            <thead>
+              <tr>
+                <th scope="col">INVENTOR</th>
+                <th scope="col">INVENTO</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let con of Consulta9">
+                <th scope="row">{{con.inventor}}</th>
+                <th scope="row">{{con.invento}}</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <h1>Consulta #10</h1>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table table-dark table-striped mb-0">
+            <thead>
+              <tr>
+                <th scope="col">INVENTOR</th>
+                <th scope="col">INVENTO</th>
+                <th scope="col">ANIO</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let con of Consulta10">
+                <th scope="row">{{con.inventor}}</th>
+                <th scope="row">{{con.invento}}</th>
+                <th scope="row">{{con.anio}}</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <h1>Consulta #11</h1>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table table-dark table-striped mb-0">
+            <thead>
+              <tr>
+                <th scope="col">PAIS</th>
+                <th scope="col">AREA</th>
+                <th scope="col">FRONTERAS</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let con of Consulta11">
+                <th scope="row">{{con.pais}}</th>
+                <th scope="row">{{con.area}}</th>
+                <th scope="row">{{con.fronteras}}</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+  <div class="container mt-5">
+    <h1>Consulta #12</h1>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table table-dark table-striped mb-0">
+            <thead>
+              <tr>
+                <th scope="col">-</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let con of Consulta12">
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <h1>Consulta #13</h1>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table table-dark table-striped mb-0">
+            <thead>
+              <tr>
+                <th scope="col">NOMBRE</th>
+                <th scope="col">SALARIO</th>
+                <th scope="col">COMISION</th>
+                <th scope="col">SUELDO</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let con of Consulta13">
+                <th scope="row">{{con.nombre}}</th>
+                <th scope="row">{{con.salario}}</th>
+                <th scope="row">{{con.comision}}</th>
+                <th scope="row">{{con.sueldo}}</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+  <div class="container mt-5">
+    <h1>Consulta #14</h1>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table table-dark table-striped mb-0">
+            <thead>
+              <tr>
+                <th scope="col">ENCUESTA</th>
+                <th scope="col">PAISES</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let con of Consulta14">
+                <th scope="row">{{con.encuesta}}</th>
+                <th scope="row">{{con.paises}}</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+  <div class="container mt-5">
+    <h1>Consulta #15</h1>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table table-dark table-striped mb-0">
+            <thead>
+              <tr>
+                <th scope="col">PAIS</th>
+                <th scope="col">POBLACION</th>
+                <th scope="col">POBLACION_CENTROAMERICA</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let con of Consulta15">
+                <th scope="row">{{con.pais}}</th>
+                <th scope="row">{{con.poblacion}}</th>
+                <th scope="row">{{con.poblacion_centroamerica}}</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+  <div class="container mt-5">
+    <h1>Consulta #16</h1>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table table-dark table-striped mb-0">
+            <thead>
+              <tr>
+                <th scope="col">PROFESIONAL</th>
+                <th scope="col">AREA</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let con of Consulta16">
+                <th scope="row">{{con.profesional}}</th>
+                <th scope="row">{{con.area}}</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+  <div class="container mt-5">
+    <h1>Consulta #17</h1>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table table-dark table-striped mb-0">
+            <thead>
+              <tr>
+                <th scope="col">INVENTO</th>
+                <th scope="col">ANIO</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let con of Consulta17">
+                <th scope="row">{{con.invento}}</th>
+                <th scope="row">{{con.anio}}</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+  <div class="container mt-5">
+    <h1>Consulta #18</h1>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table table-dark table-striped mb-0">
+            <thead>
+              <tr>
+                <th scope="col">PAIS</th>
+                <th scope="col">POBLACION</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let con of Consulta18">
+                <th scope="row">{{con.pais}}</th>
+                <th scope="row">{{con.poblacion}}</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+  <div class="container mt-5">
+    <h1>Consulta #19</h1>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table table-dark table-striped mb-0">
+            <thead>
+              <tr>
+                <th scope="col">PAIS</th>
+                <th scope="col">FRONTERA</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let con of Consulta19">
+                <th scope="row">{{con.pais}}</th>
+                <th scope="row">{{con.frontera}}</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+  <div class="container mt-5">
+    <h1>Consulta #20</h1>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table table-dark table-striped mb-0">
+            <thead>
+              <tr>
+                <th scope="col">NOMBRE</th>
+                <th scope="col">SALARIO</th>
+                <th scope="col">COMISION</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let con of Consulta20">
+                <th scope="row">{{con.nombre}}</th>
+                <th scope="row">{{con.salario}}</th>
+                <th scope="row">{{con.comision}}</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+<br><br><br><br>
+
